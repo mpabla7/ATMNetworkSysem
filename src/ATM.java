@@ -14,15 +14,26 @@ public class ATM {
     //ATM will read the object's cardNumber to check validation
     public void cardValidation(String cardNumber, Bank obj){
 
+        Scanner in = new Scanner(System.in);
+
         this.cardNumber=cardNumber;
 
             if (obj.getName().equals(cardNumber.substring(0, 1))) {    //check if bank_ID is correct for the ATM associated with bank
 
                 if (obj.checkCardValidation(cardNumber)) {    //'A 11' or 'B 111'
                     authDialog(cardNumber,obj);
+                }else{
+                    //the card is expired
+                    System.out.println("This card is expired and returned to you.");
+                    System.out.println("Enter your card");
+                    String card = in.nextLine();
+                    cardValidation(card,obj);
                 }
             } else {
-                System.out.println("This card is not supported by this ATM\n");
+                System.out.println("Error: this card is not supported by this ATM\n");
+                System.out.println("Enter your card");
+                String card = in.nextLine();
+                cardValidation(card,obj);
             }
         }
 
@@ -62,9 +73,12 @@ public class ATM {
         if(amount>MAX_AMOUNT){
             System.out.println("amount exceeds MAX_AMOUNT, please re-do transaction");
             transactionDialog(cardNumber,obj);
-        }
+        }else{ //else, start transaction by sending request to bank
 
-        //else, start transaction by sending request to bank
+            obj.withdraw(cardNumber,amount);
+
+
+        }
 
             //logic is conducted in Bank.java file
 

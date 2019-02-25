@@ -21,24 +21,28 @@ public class NetworkTester {
 
         ///////////////////////////////User interface/////////////////////////////////////////////////////////////////////////////////////////
 
+        System.out.println();
+        A.StateOfBank();
+
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Enter your choice of ATM");
+        System.out.println("\nEnter your choice of ATM");
         String userATM = input.nextLine();
 
         if(userATM.equals(ATM1_A.getATM_name()) || userATM.equals(ATM2_A.getATM_name())){
 
-            System.out.println("Enter your card (Bank A assoicated ATM)"); //example: A 11
-            //ATM1_A.cardValidation("A 11", A);
-            //String card = input.nextLine();
-            ATM1_A.cardValidation("A 12", A);
+            System.out.println("Enter your card (Bank A associated ATM)"); //example: 'A 11' or 'A 12'
+            String card = input.nextLine();
+            ATM1_A.cardValidation(card, A);
 
         }else if(userATM.equals(ATM1_B.getATM_name()) || userATM.equals(ATM2_B.getATM_name())){
-            System.out.println("Enter your card (Bank B assoicated ATM)");
-
+            System.out.println("Enter your card (Bank B associated ATM)");
+            String card= input.nextLine();
+            ATM1_B.cardValidation(card,B);
 
         }else {
             //this is not a valid ATM name
+            System.out.println("Error: not a valid ATM name");
         }
 
 

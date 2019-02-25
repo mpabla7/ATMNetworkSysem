@@ -17,6 +17,19 @@ public class Bank {
         this.name=bank_name;
     }
 
+    public void StateOfBank(){
+
+        ArrayList<checkingAccount> map = new ArrayList<>();
+        map.addAll(checkingAccount.getCheckingAccuntMap().values());
+
+        for(int i =0; i < map.size(); i++){
+            System.out.println("bankid: " + map.get(i).getBank_id() + ", account number: "
+            + map.get(i).getAccountNumber() + ", expires on "
+                    + map.get(i).getExpDate()+", password: " + map.get(i).getPassword()
+            + ", balance: " + map.get(i).getBalance());
+        }
+    }
+
     //A card is valid if it is not expired and its bank id is correct for the bank associated with the ATM.
     public boolean checkCardValidation(String cardNumber){  //'A 11' or 'B 111'
 
@@ -35,13 +48,12 @@ public class Bank {
                         LocalDate check = customers.get(info.get(i));
 
                         if(check.isBefore(LocalDate.now())){
-                            System.out.println("This card is expired and returned to you.");
+                          //  System.out.println("This card is expired and returned to you.");
                             return false;
                         }
                     }
                 }
             }
-
         }else if(cardNumber.charAt(0)=='B'){
 
             ArrayList<String> info = new ArrayList<>();
@@ -54,7 +66,7 @@ public class Bank {
                         LocalDate check = customers.get(info.get(i));
 
                         if(check.isBefore(LocalDate.now())){
-                            System.out.println("This card is expired and returned to you.");
+                           // System.out.println("This card is expired and returned to you.");
                             return false;
                         }
                     }
@@ -66,6 +78,7 @@ public class Bank {
         return true;
     }
 
+    //returns false if password is invalid
     public boolean isPasswordValid(String cardNumber, String password){
 
         customers = new HashMap<>();
@@ -96,13 +109,40 @@ public class Bank {
                     //the account is the same, and the password matches
                     return true;
                 }
-                if(account.equals(acc)){
-                    //the account is the same, and the password matches
-                    return true;
-                }
             }
         }
         return false;
+    }
+
+    //After the bank gets a withdraw request from the ATM, the bank checks if the corresponding bank account has enough money for the transaction.
+    //If the amount exceeds the limit, the transaction will fail and the bank will send an error message to the ATM.
+    public void withdraw(String cardNumber, int amount){
+
+        ArrayList<checkingAccount> map = new ArrayList<>();
+        map.addAll(checkingAccount.getCheckingAccuntMap().values());
+
+        for(int i =0; i < map.size(); i++){
+            if(map.get(i).getCardNumber().equals(cardNumber)){
+
+                if(map.get(i).sufficient_money(amount)) {   //if true, then account has sufficient funds
+
+                    System.out.println("before " + map.get(i).getBalance());
+                    map.get(i).withdraw(amount);
+                    System.out.println("after " + map.get(i).getBalance());
+
+                }else{
+                    System.out.println("The account does not have sufficient funds");
+                }
+            }
+        }
+        //DEBUGGER LOOP
+        for(int i = 0; i < map.size(); i++){
+            System.out.println("DEBUGGER LOOP: " + map.get(i).getCardNumber() + " " + map.get(i).getBalance());
+        }
+    }
+
+    public void transactionLog(){
+
     }
 
     public String getName() {
