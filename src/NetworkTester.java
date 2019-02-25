@@ -1,22 +1,40 @@
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class NetworkTester {
 
     public static void main(String [] arg){
 
-        Bank A = new Bank("A");                         //Bank A
-        ATM ATM1_A =new ATM("ATM1_A");                  //Bank A has two ATMs
-        ATM ATM2_A = new ATM("ATM2_A");
+        HashMap<String, ATM> atms = new HashMap<>();
 
-        Customer A_cust1 =new Customer("Bob", "Bob123", "A 11");       //Bank A has two customers
-        Customer A_cust2 = new Customer("Joe", "Joe123", "A 12");
+        Bank A = new Bank("A");                         //Bank A
+      //  ATM ATM1_A =new ATM("ATM1_A",A);                  //Bank A has two ATMs
+      //  ATM ATM2_A = new ATM("ATM2_A",A);
+
+        atms.put("ATM1_A", new ATM("ATM1_A",A));
+        atms.put("ATM2_A", new ATM("ATM2_A",A));
+
+        //String name, String password, String cardNumber, Bank obj
+
+//        Customer A_cust1 =new Customer("Bob", "Bob123", "A 11");       //Bank A has two customers
+//        Customer A_cust2 = new Customer("Joe", "Joe123", "A 12");
+
+        checkingAccount A_cust1 = new checkingAccount("Bob", "Bob123", "A 11", A);
+        checkingAccount A_cust2 = new checkingAccount("Joe", "Joe123", "A 12", A);
+
 
         Bank B = new Bank("B");                        //Bank B
-        ATM ATM1_B =new ATM("ATM1_B");                  //Bank B has two ATMs
-        ATM ATM2_B =new ATM("ATM2_B");
+     //   ATM ATM1_B =new ATM("ATM1_B",B);                  //Bank B has two ATMs
+      //  ATM ATM2_B =new ATM("ATM2_B",B);
 
-        Customer B_cust3 =new Customer("Mike", "Mike123", "B 111");       //Bank B has two customers
-        Customer B_cust4 = new Customer("John", "John123", "B 122");
+        atms.put("ATM1_B", new ATM("ATM1_B",B));
+        atms.put("ATM2_B", new ATM("ATM2_B",B));
+
+//        Customer B_cust3 =new Customer("Mike", "Mike123", "B 111");       //Bank B has two customers
+//        Customer B_cust4 = new Customer("John", "John123", "B 122");
+
+        checkingAccount B_cust3 = new checkingAccount("Mike", "Mike123", "B 111", B);
+        checkingAccount B_cust4 = new checkingAccount("John", "John123", "B 122", B);
 
 
         ///////////////////////////////User interface/////////////////////////////////////////////////////////////////////////////////////////
@@ -29,22 +47,16 @@ public class NetworkTester {
         System.out.println("\nEnter your choice of ATM");
         String userATM = input.nextLine();
 
-        if(userATM.equals(ATM1_A.getATM_name()) || userATM.equals(ATM2_A.getATM_name())){
+        if(atms.containsKey(userATM)){
 
-            System.out.println("Enter your card (Bank A associated ATM)"); //example: 'A 11' or 'A 12'
+            ATM atm = atms.get(userATM);
+            System.out.println("Enter your card " + atm.getMyBank().getName()); //example: 'A 11' or 'A 12'
             String card = input.nextLine();
-            ATM1_A.cardValidation(card, A);
+            atm.cardValidation(card);
 
-        }else if(userATM.equals(ATM1_B.getATM_name()) || userATM.equals(ATM2_B.getATM_name())){
-            System.out.println("Enter your card (Bank B associated ATM)");
-            String card= input.nextLine();
-            ATM1_B.cardValidation(card,B);
-
-        }else {
-            //this is not a valid ATM name
+        }else{
             System.out.println("Error: not a valid ATM name");
         }
-
 
     }
 }

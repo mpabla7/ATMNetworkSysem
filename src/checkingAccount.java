@@ -13,10 +13,10 @@ public class checkingAccount {
     private CashCard cashCard;          //CashCard object should know cardNumber and expDate
     private LocalDate expDate;          //expDate of CashCard should be assigned in CashCard
 
-    private static HashMap<String,LocalDate> customers = new HashMap<>();            //KEY=cardNumber +" "+ password, VALUE = expDate
-    private static HashMap<String, checkingAccount> checkingAccuntMap = new HashMap<>();//KEY=cardNumber +" "+ password, VALUE = this
+  //  private static HashMap<String,LocalDate> customers = new HashMap<>();            //KEY=cardNumber +" "+ password, VALUE = expDate
+   // private static HashMap<String, checkingAccount> checkingAccuntMap = new HashMap<>();//KEY=cardNumber +" "+ password, VALUE = this
 
-    public checkingAccount(String password, String cardNumber){
+    public checkingAccount(String name, String password, String cardNumber, Bank obj){
 
         this.password=password;
         this.cardNumber=cardNumber;
@@ -26,8 +26,10 @@ public class checkingAccount {
 
         cashCard=new CashCard(cardNumber);
 
-        customers.put(cardNumber +" " +password, this.getExpDate());
-        checkingAccuntMap.put(cardNumber +" " +password, this);
+        obj.setCustomers(cardNumber,this);
+
+        //customers.put(cardNumber +" " +password, this.getExpDate());
+       // checkingAccuntMap.put(cardNumber +" " +password, this);
 
     }
 
@@ -46,15 +48,15 @@ public class checkingAccount {
     /*
      *  accessors
      */
-    //returns customer info along with checkingAccount objs
-    public static HashMap<String, checkingAccount> getCheckingAccuntMap(){
-        return checkingAccuntMap;
-    }
-
-    //returns customer info
-    public static HashMap<String, LocalDate> getCustomers() {
-        return customers;
-    }
+//    //returns customer info along with checkingAccount objs
+//    public static HashMap<String, checkingAccount> getCheckingAccuntMap(){
+//        return checkingAccuntMap;
+//    }
+//
+//    //returns customer info
+//    public static HashMap<String, LocalDate> getCustomers() {
+//        return customers;
+//    }
 
     //return balance in account
     public int getBalance() {
@@ -85,5 +87,9 @@ public class checkingAccount {
     //return password
     public String getPassword(){
         return password;
+    }
+
+    public CashCard getCashCard() {
+        return cashCard;
     }
 }

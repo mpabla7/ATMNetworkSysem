@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class ATM {
@@ -6,34 +7,36 @@ public class ATM {
     private final int MAX_AMOUNT = 1000; //ATM maximum withdraw of $1000
     private String ATM_name;
     private String cardNumber;
+    private Bank myBank;
 
-    ATM(String name){
+    ATM(String name, Bank myBank){
         this.ATM_name=name;
+        this.myBank=myBank;
     }
 
     //ATM will read the object's cardNumber to check validation
-    public void cardValidation(String cardNumber, Bank obj){
+    public void cardValidation(String cardNumber){
 
         Scanner in = new Scanner(System.in);
 
         this.cardNumber=cardNumber;
 
-            if (obj.getName().equals(cardNumber.substring(0, 1))) {    //check if bank_ID is correct for the ATM associated with bank
+            if (myBank.getName().equals(cardNumber.substring(0, 1))) {    //check if bank_ID is correct for the ATM associated with bank
 
-                if (obj.checkCardValidation(cardNumber)) {    //'A 11' or 'B 111'
-                    authDialog(cardNumber,obj);
+                if (myBank.checkCardValidation(cardNumber)) {    //'A 11' or 'B 111'
+                    authDialog(cardNumber,myBank);
                 }else{
                     //the card is expired
                     System.out.println("This card is expired and returned to you.");
                     System.out.println("Enter your card");
                     String card = in.nextLine();
-                    cardValidation(card,obj);
+                    cardValidation(card);
                 }
             } else {
                 System.out.println("Error: this card is not supported by this ATM\n");
                 System.out.println("Enter your card");
                 String card = in.nextLine();
-                cardValidation(card,obj);
+                cardValidation(card);
             }
         }
 
@@ -86,6 +89,10 @@ public class ATM {
 
         //money dispensed from ATM
 
+    }
+
+    public Bank getMyBank() {
+        return myBank;
     }
 
     public String getATM_name() {

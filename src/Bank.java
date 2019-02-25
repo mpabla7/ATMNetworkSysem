@@ -9,7 +9,7 @@ public class Bank {
 
     private String cardNumber;                   //Can be 'A 11' or 'B 111'
 
-    private HashMap<String, LocalDate> customers;    //will get customer info from checkingAccount, //KEY=cardNumber + " " +password, VALUE = expDate
+    private HashMap<String, checkingAccount> customers = new HashMap<>();    //will get customer info from checkingAccount, //KEY=cardNumber + " " +password, VALUE = expDate
 
     private String name; //name 'A' or 'B'
 
@@ -17,24 +17,39 @@ public class Bank {
         this.name=bank_name;
     }
 
+    public void setCustomers(String key, checkingAccount value){
+        customers.put(key,value);
+    }
+
     public void StateOfBank(){
+//
+//        ArrayList<checkingAccount> map = new ArrayList<>();
+//        map.addAll(checkingAccount.getCheckingAccuntMap().values());
 
-        ArrayList<checkingAccount> map = new ArrayList<>();
-        map.addAll(checkingAccount.getCheckingAccuntMap().values());
+        for(String key: customers.keySet()){
+//            System.out.println("bankid: " + map.get(i).getBank_id() + ", account number: "
+//            + map.get(i).getAccountNumber() + ", expires on "
+//                    + map.get(i).getExpDate()+", password: " + map.get(i).getPassword()
+//            + ", balance: " + map.get(i).getBalance());
 
-        for(int i =0; i < map.size(); i++){
-            System.out.println("bankid: " + map.get(i).getBank_id() + ", account number: "
-            + map.get(i).getAccountNumber() + ", expires on "
-                    + map.get(i).getExpDate()+", password: " + map.get(i).getPassword()
-            + ", balance: " + map.get(i).getBalance());
+            checkingAccount acc = customers.get(key);
+            System.out.println(acc.getBank_id() + " ");
+
         }
     }
 
     //A card is valid if it is not expired and its bank id is correct for the bank associated with the ATM.
     public boolean checkCardValidation(String cardNumber){  //'A 11' or 'B 111'
 
-        customers = new HashMap<>();
-        customers.putAll(checkingAccount.getCustomers());
+        //customers = checkingAccount.getCustomers();
+
+        if(customers.containsKey(cardNumber)){
+
+
+
+        }else{
+            //not valid
+        }
 
         if(cardNumber.charAt(0)=='A'){
 
@@ -45,12 +60,13 @@ public class Bank {
 
                 if(info.get(i).substring(0,1).equals("A")){     //confirm that the customers are from bank A
                     if(customers.containsKey(info.get(i))){
-                        LocalDate check = customers.get(info.get(i));
 
-                        if(check.isBefore(LocalDate.now())){
-                          //  System.out.println("This card is expired and returned to you.");
-                            return false;
-                        }
+ //                       LocalDate check = customers.get(info.get(i));
+
+//                        if(check.isBefore(LocalDate.now())){
+//                          //  System.out.println("This card is expired and returned to you.");
+//                            return false;
+//                        }
                     }
                 }
             }
@@ -63,12 +79,12 @@ public class Bank {
 
                 if(info.get(i).substring(0,1).equals("B")){     //confirm that the customers are from bank B
                     if(customers.containsKey(info.get(i))){
-                        LocalDate check = customers.get(info.get(i));
+ //                       LocalDate check = customers.get(info.get(i));
 
-                        if(check.isBefore(LocalDate.now())){
-                           // System.out.println("This card is expired and returned to you.");
-                            return false;
-                        }
+//                        if(check.isBefore(LocalDate.now())){
+//                           // System.out.println("This card is expired and returned to you.");
+//                            return false;
+//                        }
                     }
                 }
 
@@ -81,8 +97,10 @@ public class Bank {
     //returns false if password is invalid
     public boolean isPasswordValid(String cardNumber, String password){
 
+        //check if password entered is assoicated with the checkingaccount hashmap
+
         customers = new HashMap<>();
-        customers.putAll(checkingAccount.getCustomers());
+//        customers.putAll(checkingAccount.getCustomers());
 
         String account = cardNumber;
 
@@ -118,8 +136,10 @@ public class Bank {
     //If the amount exceeds the limit, the transaction will fail and the bank will send an error message to the ATM.
     public void withdraw(String cardNumber, int amount){
 
+        //look in hashmap to withdraw funds
+
         ArrayList<checkingAccount> map = new ArrayList<>();
-        map.addAll(checkingAccount.getCheckingAccuntMap().values());
+ //       map.addAll(checkingAccount.getCheckingAccuntMap().values());
 
         for(int i =0; i < map.size(); i++){
             if(map.get(i).getCardNumber().equals(cardNumber)){
