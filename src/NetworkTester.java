@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class NetworkTester {
 
-    public static void main(String [] arg){
+    public static void main(String [] arg){     //post alex mods
 
         Bank A = new Bank("A");                         //Bank A
         ATM ATM1_A =new ATM("ATM1_A");                  //Bank A has two ATMs
