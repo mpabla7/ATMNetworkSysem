@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.HashMap;
 
 public class checkingAccount {
 
@@ -10,7 +11,9 @@ public class checkingAccount {
     private String accountNumber;       // '11' or '111' in cardNumber variable
 
     private CashCard cashCard;          //CashCard object should know cardNumber and expDate
-    private LocalDate expDate;          //expDate of CashCard should be assigned here (or in CashCard?)
+    private LocalDate expDate;          //expDate of CashCard should be assigned in CashCard
+
+    private static HashMap<String,LocalDate> customers = new HashMap<>();     //KEY=cardNumber +" "+ password, VALUE = expDate
 
     public checkingAccount(String password, String cardNumber){
 
@@ -21,6 +24,9 @@ public class checkingAccount {
         this.accountNumber=cardNumber.substring(cardNumber.indexOf(' '));   //stores the numbers after the ' ' in cardNumber,    (accountNumber variable)
 
         cashCard=new CashCard(cardNumber);
+
+        customers.put(cardNumber +" " +password, this.getExpDate());
+
     }
 
     public void withdraw(int amount){
@@ -31,6 +37,11 @@ public class checkingAccount {
     /*
      *  accessors
      */
+
+    //returns customer info
+    public static HashMap<String, LocalDate> getCustomers() {
+        return customers;
+    }
 
     //return balance in account
     public int getBalance() {

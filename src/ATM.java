@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class ATM {
 
@@ -15,29 +16,53 @@ public class ATM {
 
         this.cardNumber=cardNumber;
 
-        obj.checkCardValidation(cardNumber);    //'A 11'
+            if (obj.getName().equals(cardNumber.substring(0, 1))) {    //check if bank_ID is correct for the ATM associated with bank
 
-        //is bank id correct for the Bank associated with the ATM
-        //bank id for WellsFargo != bank id for Bank of America
+                if (obj.checkCardValidation(cardNumber)) {    //'A 11' or 'B 111'
+                    authDialog(cardNumber,obj);
+                }
+            } else {
+                System.out.println("This card is not supported by this ATM\n");
+            }
+        }
 
-    }
 
-    public void authDialog(){
+    public void authDialog(String cardNumber, Bank obj){
+
+        //user input
+        Scanner scanner = new Scanner(System.in);
 
         //ask customer to enter password
+        System.out.println("Enter your password");
+        String password = scanner.nextLine();
 
         //password verified with BANK
+        if(obj.isPasswordValid(cardNumber, password)){  //Bank will return accept or reject from
 
-        //Bank will return accept or reject from
+            System.out.println("Congrats! Password is verified");
+            //if accepted then call transactionDialog() method
+            transactionDialog(cardNumber, obj);
 
-        //if accepted then call transactionDialog() method
+        }else{
+            System.out.println("Error wrong password, card is returned");
+            authDialog(cardNumber,obj);     //let customer re-enter his/her password
+        }
     }
 
-    public void transactionDialog(){
+    public void transactionDialog(String cardNumber, Bank obj){
+
+        Scanner in = new Scanner(System.in);    //user input
 
         //let customer enter amount
+        System.out.println("Please enter an amount to withdraw");
+
+        int amount =  in.nextInt();
 
         //check if amount > MAX_AMOUNT, if so display error
+        if(amount>MAX_AMOUNT){
+            System.out.println("amount exceeds MAX_AMOUNT, please re-do transaction");
+            transactionDialog(cardNumber,obj);
+        }
 
         //else, start transaction by sending request to bank
 

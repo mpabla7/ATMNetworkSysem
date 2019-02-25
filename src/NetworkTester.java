@@ -29,8 +29,9 @@ public class NetworkTester {
         if(userATM.equals(ATM1_A.getATM_name()) || userATM.equals(ATM2_A.getATM_name())){
 
             System.out.println("Enter your card (Bank A assoicated ATM)"); //example: A 11
-            ATM1_A.cardValidation("A 11", A);
-
+            //ATM1_A.cardValidation("A 11", A);
+            //String card = input.nextLine();
+            ATM1_A.cardValidation("A 12", A);
 
         }else if(userATM.equals(ATM1_B.getATM_name()) || userATM.equals(ATM2_B.getATM_name())){
             System.out.println("Enter your card (Bank B assoicated ATM)");
