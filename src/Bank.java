@@ -9,7 +9,7 @@ public class Bank {
 
     private String cardNumber;                   //Can be 'A 11' or 'B 111'
 
-    private HashMap<String, checkingAccount> customers = new HashMap<>();    //will get customer info from checkingAccount, //KEY=cardNumber + " " +password, VALUE = expDate
+    private HashMap<String, checkingAccount> customers = new HashMap<>();    //KEY = card number, VALUE = checkingAccount obj
 
     private String name; //name 'A' or 'B'
 
@@ -33,7 +33,8 @@ public class Bank {
 //            + ", balance: " + map.get(i).getBalance());
 
             checkingAccount acc = customers.get(key);
-            System.out.println(acc.getBank_id() + " ");
+            System.out.println("bankid: " + acc.getBank_id() + ", account number: " + acc.getAccountNumber() +", expires on "
+            +acc.getExpDate() +", password: " + acc.getPassword() +", balance: " + acc.getBalance());
 
         }
     }
@@ -41,56 +42,25 @@ public class Bank {
     //A card is valid if it is not expired and its bank id is correct for the bank associated with the ATM.
     public boolean checkCardValidation(String cardNumber){  //'A 11' or 'B 111'
 
-        //customers = checkingAccount.getCustomers();
+        if(customers.containsKey(cardNumber)){              //it already knows if it is bank A or bank B
 
-        if(customers.containsKey(cardNumber)){
+            ArrayList<checkingAccount> info = new ArrayList<>();
+            info.addAll(customers.values());
 
+            for(int i =0; i < info.size(); i++){            //it already knows if it is bank A or bank B
 
+                if(cardNumber.equals(info.get(i).getCardNumber())) {
 
-        }else{
-            //not valid
-        }
-
-        if(cardNumber.charAt(0)=='A'){
-
-            ArrayList<String> info = new ArrayList<>();
-            info.addAll(customers.keySet());
-
-            for(int i =0; i < info.size(); i++){
-
-                if(info.get(i).substring(0,1).equals("A")){     //confirm that the customers are from bank A
-                    if(customers.containsKey(info.get(i))){
-
- //                       LocalDate check = customers.get(info.get(i));
-
-//                        if(check.isBefore(LocalDate.now())){
-//                          //  System.out.println("This card is expired and returned to you.");
-//                            return false;
-//                        }
+                    LocalDate checkDate = info.get(i).getExpDate();
+                    if(checkDate.isBefore(LocalDate.now())){
+                        //This card is expired and returned to you.
+                        return false;
+                    }else{
+                        return true;
                     }
                 }
             }
-        }else if(cardNumber.charAt(0)=='B'){
-
-            ArrayList<String> info = new ArrayList<>();
-            info.addAll(customers.keySet());
-
-            for(int i =0; i < info.size(); i++){
-
-                if(info.get(i).substring(0,1).equals("B")){     //confirm that the customers are from bank B
-                    if(customers.containsKey(info.get(i))){
- //                       LocalDate check = customers.get(info.get(i));
-
-//                        if(check.isBefore(LocalDate.now())){
-//                           // System.out.println("This card is expired and returned to you.");
-//                            return false;
-//                        }
-                    }
-                }
-
-            }
         }
-
         return true;
     }
 

@@ -45,7 +45,7 @@ public class ATM {
 
         //user input
         Scanner scanner = new Scanner(System.in);
-
+        System.out.println("---DEBUG ME---");
         //ask customer to enter password
         System.out.println("Enter your password");
         String password = scanner.nextLine();

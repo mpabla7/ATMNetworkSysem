@@ -41,6 +41,8 @@ public class NetworkTester {
 
         System.out.println();
         A.StateOfBank();
+        System.out.println();
+        B.StateOfBank();
 
         Scanner input = new Scanner(System.in);
 
