@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd8f8638-8f3a-498e-bd4b-785ac6173f0b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PA2_CS151/ATM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA2_CS151/ATM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PA2_CS151/Bank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA2_CS151/Bank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PA2_CS151/CashCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA2_CS151/CashCard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PA2_CS151/Customer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PA2_CS151/NetworkTester.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA2_CS151/NetworkTester.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PA2_CS151/checkingAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA2_CS151/checkingAccount.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ATM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ATM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CashCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CashCard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NetworkTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NetworkTester.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/checkingAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/checkingAccount.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,8 +17,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/NetworkTester.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="30" column="49" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
+            <state relative-caret-position="142">
+              <caret line="36" column="50" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -39,8 +29,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ATM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="93" column="156" selection-start-line="93" selection-start-column="156" selection-end-line="93" selection-end-column="156" />
+            <state relative-caret-position="2">
+              <caret line="122" column="59" selection-start-line="122" selection-start-column="59" selection-end-line="122" selection-end-column="59" />
               <folding>
                 <element signature="e#2976#2977#0" expanded="true" />
                 <element signature="e#3024#3025#0" expanded="true" />
@@ -153,7 +143,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551228771251" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551232601337" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -205,7 +195,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18993288" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -216,14 +205,14 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.39518413" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.9575071" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32719547" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3186969" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.20254958" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -293,6 +282,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/checkingAccount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Bank.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -308,20 +307,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/checkingAccount.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/NetworkTester.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="30" column="49" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
+        <state relative-caret-position="142">
+          <caret line="36" column="50" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -330,8 +319,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ATM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="93" column="156" selection-start-line="93" selection-start-column="156" selection-end-line="93" selection-end-column="156" />
+        <state relative-caret-position="2">
+          <caret line="122" column="59" selection-start-line="122" selection-start-column="59" selection-end-line="122" selection-end-column="59" />
           <folding>
             <element signature="e#2976#2977#0" expanded="true" />
             <element signature="e#3024#3025#0" expanded="true" />

@@ -118,4 +118,8 @@ public class ATM {
     public Bank getMyBank() {
         return myBank;
     }
+
+    public void ATMinfo(){
+        System.out.println("The maximum amount of cash this ATM can withdraw per transaction: $" + MAX_AMOUNT+ ". Associated with " + myBank.getName());
+    }
 }

@@ -34,8 +34,13 @@ public class NetworkTester {
         System.out.println();
         B.StateOfBank();
 
-        System.out.println("States of four ATMs");
+        System.out.println("\nStates of four ATMs:\n");
 
+        for(int i = 0; i < atms.size(); i++){
+
+            System.out.println(atms.keySet().toArray()[i]);
+            atms.get(atms.keySet().toArray()[i]).ATMinfo();
+        }
 
         Scanner input = new Scanner(System.in);
 
