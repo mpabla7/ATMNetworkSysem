@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bd8f8638-8f3a-498e-bd4b-785ac6173f0b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/ATM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ATM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NetworkTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NetworkTester.java" afterDir="false" />
-    </list>
+    <list default="true" id="bd8f8638-8f3a-498e-bd4b-785ac6173f0b" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +26,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ATM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2">
+            <state relative-caret-position="700">
               <caret line="122" column="59" selection-start-line="122" selection-start-column="59" selection-end-line="122" selection-end-column="59" />
               <folding>
                 <element signature="e#2976#2977#0" expanded="true" />
@@ -143,7 +140,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551232601337" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551235918598" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -205,14 +202,14 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.9575071" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.9575071" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32719547" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.20254958" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" visible="true" weight="0.5056657" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -282,16 +279,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/checkingAccount.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Bank.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -317,9 +304,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/checkingAccount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ATM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2">
+        <state relative-caret-position="700">
           <caret line="122" column="59" selection-start-line="122" selection-start-column="59" selection-end-line="122" selection-end-column="59" />
           <folding>
             <element signature="e#2976#2977#0" expanded="true" />
