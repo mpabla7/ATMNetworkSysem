@@ -1,16 +1,11 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 
 public class Bank {
 
-    private String bank_id;                      //Can be 'A' or 'B' depending on Bank
-    private String accountNumber;                //Can be '11' or '111'
-
-    private String cardNumber;                   //Can be 'A 11' or 'B 111'
-
     private HashMap<String, checkingAccount> customers = new HashMap<>();    //KEY = card number, VALUE = checkingAccount obj
-
     private String name; //name 'A' or 'B'
 
     Bank(String bank_name){
@@ -22,20 +17,10 @@ public class Bank {
     }
 
     public void StateOfBank(){
-//
-//        ArrayList<checkingAccount> map = new ArrayList<>();
-//        map.addAll(checkingAccount.getCheckingAccuntMap().values());
-
         for(String key: customers.keySet()){
-//            System.out.println("bankid: " + map.get(i).getBank_id() + ", account number: "
-//            + map.get(i).getAccountNumber() + ", expires on "
-//                    + map.get(i).getExpDate()+", password: " + map.get(i).getPassword()
-//            + ", balance: " + map.get(i).getBalance());
-
             checkingAccount acc = customers.get(key);
             System.out.println("bankid: " + acc.getBank_id() + ", account number: " + acc.getAccountNumber() +", expires on "
             +acc.getExpDate() +", password: " + acc.getPassword() +", balance: " + acc.getBalance());
-
         }
     }
 
@@ -61,41 +46,25 @@ public class Bank {
                 }
             }
         }
-        return true;
+        return false;
     }
 
     //returns false if password is invalid
     public boolean isPasswordValid(String cardNumber, String password){
 
-        //check if password entered is assoicated with the checkingaccount hashmap
+        if(customers.containsKey(cardNumber)){
 
-        customers = new HashMap<>();
-//        customers.putAll(checkingAccount.getCustomers());
+            ArrayList<checkingAccount> info = new ArrayList<>();
+            info.addAll(customers.values());
 
-        String account = cardNumber;
+            for(int i =0; i < info.size(); i++){
 
-        ArrayList<String> info = new ArrayList<>();
-        info.addAll(customers.keySet());
-
-        for(int i =0; i < info.size(); i++){
-            if(info.get(i).charAt(0)=='A'){
-                String acc = info.get(i).substring(0,4);
-
-                String pass = info.get(i).substring(info.get(i).lastIndexOf(" ")+1);    //this will get password for index i of array list
-
-                if(account.equals(acc) && pass.equals(password)){       //check if the specific account contains this password
-
-                    //the account is the same, and the password matches
-                    return true;
-                }
-            }else if(info.get(i).charAt(0)=='B'){
-
-                String acc = info.get(i).substring(0,5);                                    //this will get card number
-                String pass = info.get(i).substring(info.get(i).lastIndexOf(" ")+1);    //this will get password for index i of array list
-
-                if(account.equals(acc) && pass.equals(password)){       //check if the specific account contains this password
-                    //the account is the same, and the password matches
-                    return true;
+                if(info.get(i).getCardNumber().equals(cardNumber)){         //same card number, now check password
+                    if(info.get(i).getPassword().equals(password)){         //same password, return true
+                        return true;
+                    }else{
+                        return false;
+                    }
                 }
             }
         }
@@ -104,35 +73,43 @@ public class Bank {
 
     //After the bank gets a withdraw request from the ATM, the bank checks if the corresponding bank account has enough money for the transaction.
     //If the amount exceeds the limit, the transaction will fail and the bank will send an error message to the ATM.
-    public void withdraw(String cardNumber, int amount){
+    public boolean withdraw(String cardNumber, int amount){
 
-        //look in hashmap to withdraw funds
+        if(customers.containsKey(cardNumber)){
 
-        ArrayList<checkingAccount> map = new ArrayList<>();
- //       map.addAll(checkingAccount.getCheckingAccuntMap().values());
+            ArrayList<checkingAccount> info = new ArrayList<>();
+            info.addAll(customers.values());
 
-        for(int i =0; i < map.size(); i++){
-            if(map.get(i).getCardNumber().equals(cardNumber)){
+            for(int i =0; i < info.size(); i++){
 
-                if(map.get(i).sufficient_money(amount)) {   //if true, then account has sufficient funds
+                if(info.get(i).getCardNumber().equals(cardNumber)){
 
-                    System.out.println("before " + map.get(i).getBalance());
-                    map.get(i).withdraw(amount);
-                    System.out.println("after " + map.get(i).getBalance());
-
-                }else{
-                    System.out.println("The account does not have sufficient funds");
+                    if(info.get(i).sufficient_money(amount)){
+                        info.get(i).withdraw(amount);
+                        System.out.println("$" + amount+" is withdrawn from your account. The remaining balance of this account is $"+ info.get(i).getBalance());
+                        return true;
+                    }else{
+                        System.out.println("Error: account does not have sufficient funds");
+                        return false;
+                    }
                 }
             }
         }
-        //DEBUGGER LOOP
-        for(int i = 0; i < map.size(); i++){
-            System.out.println("DEBUGGER LOOP: " + map.get(i).getCardNumber() + " " + map.get(i).getBalance());
-        }
+        return false;
     }
 
-    public void transactionLog(){
+    //the transaction is logged against the card number at the bank
+    public void transactionLog(String cardNumber, int amount){
 
+        ArrayList<checkingAccount> info = new ArrayList<>();
+        info.addAll(customers.values());
+
+        for(int i =0; i < info.size(); i++){
+
+            if(info.get(i).getCardNumber().equals(cardNumber)){
+                info.get(i).addNode(amount);
+            }
+        }
     }
 
     public String getName() {

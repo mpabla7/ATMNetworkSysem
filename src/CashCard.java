@@ -21,10 +21,6 @@ public class CashCard {
         this.expirationDate=randomDate;
     }
 
-    public String getCardNumber() {
-        return cardNumber;
-    }
-
     public LocalDate getExpirationDate() {
         return expirationDate;
     }
