@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.LinkedList;
 
 public class checkingAccount {
 
@@ -12,25 +13,25 @@ public class checkingAccount {
 
     private CashCard cashCard;          //CashCard object should know cardNumber and expDate
     private LocalDate expDate;          //expDate of CashCard should be assigned in CashCard
+    private String name;
 
-    private static HashMap<String,LocalDate> customers = new HashMap<>();            //KEY=cardNumber +" "+ password, VALUE = expDate
-    private static HashMap<String, checkingAccount> checkingAccuntMap = new HashMap<>();//KEY=cardNumber +" "+ password, VALUE = this
+    private LinkedList<Integer> log = new LinkedList<>();
 
-    public checkingAccount(String password, String cardNumber){
+    public checkingAccount(String name, String password, String cardNumber, Bank obj){
 
         this.password=password;
         this.cardNumber=cardNumber;
 
-        this.bank_id=String.valueOf(cardNumber.charAt(0));                  //stores first index of string and will indicate what bank the account belongs to.     (bank_id)
+        this.bank_id=String.valueOf(cardNumber.charAt(0));                  //stores first index of string and will indicate what bank the account belongs to.   (bank_id)
         this.accountNumber=cardNumber.substring(cardNumber.indexOf(' '));   //stores the numbers after the ' ' in cardNumber,    (accountNumber variable)
-
+        this.name=name;
         cashCard=new CashCard(cardNumber);
 
-        customers.put(cardNumber +" " +password, this.getExpDate());
-        checkingAccuntMap.put(cardNumber +" " +password, this);
+        obj.setCustomers(cardNumber,this);
 
     }
 
+    //checks if customer has sufficient funds before withdraw
     public boolean sufficient_money(int amount){
         if(balance-amount < 0){
             return false;
@@ -42,18 +43,16 @@ public class checkingAccount {
         balance=balance-amount;
     }
 
+    public void addNode(int amount){
+        this.log.add(amount);
+    }
 
     /*
      *  accessors
      */
-    //returns customer info along with checkingAccount objs
-    public static HashMap<String, checkingAccount> getCheckingAccuntMap(){
-        return checkingAccuntMap;
-    }
 
-    //returns customer info
-    public static HashMap<String, LocalDate> getCustomers() {
-        return customers;
+    public LinkedList<Integer> getLog(){
+        return log;
     }
 
     //return balance in account
@@ -86,4 +85,5 @@ public class checkingAccount {
     public String getPassword(){
         return password;
     }
+
 }
