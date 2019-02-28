@@ -1,9 +1,24 @@
+/**
+ * @author Mandeep Pabla
+ * @version 1.0 2/27/2019
+ */
+
+/**
+ * @author Mandeep Pabla
+ * @version 1.0 2/27/2019
+ */
+
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+ * NetworkTester contains a hash map that keeps track of all ATM objects. This class creates multiple customers and banks.
+ * The state of the banks and ATMs is shown here and the user is prompted to enter an ATM of their choice from where
+ * the UI continues on in the ATM class.
+ */
 public class NetworkTester {
 
-    public static void main(String [] arg){     //post alex mods
+    public static void main(String [] arg){
 
         HashMap<String, ATM> atms = new HashMap<>();
 
@@ -15,18 +30,18 @@ public class NetworkTester {
         checkingAccount A_cust1 = new checkingAccount("Bob", "Bob123", "A 11", A);
         checkingAccount A_cust2 = new checkingAccount("Joe", "Joe123", "A 12", A);
 
-        Bank B = new Bank("B");                        //Bank B
+        Bank B = new Bank("B");                         //Bank B
 
         atms.put("ATM1_B", new ATM("ATM1_B",B));            //Bank B has two ATMs
         atms.put("ATM2_B", new ATM("ATM2_B",B));
 
-        //Bank B has two customers
+        //Bank B has three customers
         checkingAccount B_cust3 = new checkingAccount("Mike", "Mike123", "B 111", B);
         checkingAccount B_cust4 = new checkingAccount("John", "John123", "B 122", B);
         checkingAccount B_cust5 = new checkingAccount("Jose", "Jose123", "B 133", B);
 
 
-        ///////////////////////////////User interface/////////////////////////////////////////////////////////////////////////////////////////
+        //User interface
 
         System.out.println("State of two banks:\n");
         System.out.println("Assume all accounts have $250 preloaded.  \n");

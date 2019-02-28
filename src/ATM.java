@@ -1,18 +1,36 @@
+/**
+ * @author Mandeep Pabla
+ * @version 1.0 2/27/2019
+ */
 
 import java.util.Scanner;
 
+/**
+ * Each ATM is associated with corresponding bank. ATM class is responsible for the card validation and user authentication UI.
+ * The card/password info is passed along to the corresponding bank the ATM is linked to so it can check if the info is correct.
+ */
 public class ATM {
 
     private final int MAX_AMOUNT = 1000; //ATM maximum withdraw of $1000
-    private String ATM_name;
-    private Bank myBank;
+    private String ATM_name;             //Holds ATMs name
+    private Bank myBank;                 //Holds which bank the ATM is linked to
 
+    /**
+     * Assigns name of ATM and the Bank the ATM is linked to.
+     *
+     * @param name
+     * @param myBank
+     */
     ATM(String name, Bank myBank){
         this.ATM_name=name;
         this.myBank=myBank;
     }
 
-    //ATM will read the object's cardNumber to check validation
+    /**
+     * ATM will read the object's cardNumber to check validation. The card number is passed into the 'checkCardValidation' method in the Bank class.
+     * An error message is displayed if the card is expired or not if the card is not supported by the particiular ATM.
+     * @param cardNumber
+     */
     public void cardValidation(String cardNumber){
 
         Scanner in = new Scanner(System.in);
@@ -36,15 +54,20 @@ public class ATM {
             }
         }
 
-
+    /**
+     * If the card is valid then authDialog method is called. This method asks user for password and invokes the 'isPasswordValid' in Bank.java.
+     * The 'isPasswordValid' will return true if the password is correct.
+     *
+     * @param cardNumber
+     */
     public void authDialog(String cardNumber){
 
-        Scanner scanner = new Scanner(System.in); //user input
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your password");
         String password = scanner.nextLine();
 
         //password verified with BANK
-        if(myBank.isPasswordValid(cardNumber, password)){  //Bank will return accept or reject from
+        if(myBank.isPasswordValid(cardNumber, password)){  //Bank will return accept or reject
 
             System.out.println("Congrats! Password is verified");
             //if accepted then call transactionDialog() method
@@ -56,9 +79,16 @@ public class ATM {
         }
     }
 
+    /**
+     * The transactionDialog is called if the password is valid and the user is asked to withdraw an amount from their account. If the amount
+     * exceeds the max of the ATM or if the amount exceeds the amount of funds in user's checking account then an error is displayed. The user can enter in
+     * 0 if they want to exit the program.
+     *
+     * @param cardNumber
+     */
     public void transactionDialog(String cardNumber){
 
-        Scanner in = new Scanner(System.in);                            //user input
+        Scanner in = new Scanner(System.in);
         System.out.println("Please enter an amount to withdraw or enter 0 to quit");
         int amount =  in.nextInt();
         if(amount==0) Quit();
@@ -84,7 +114,13 @@ public class ATM {
             }
         }
     }
-    //overloads transactionDialog
+
+    /**
+     * This method overloads the transactionDialog method above and is only activated if the user enters in an amount that exceeds current funds
+     *
+     * @param cardNumber
+     * @param amount
+     */
     public void transactionDialog(String cardNumber, int amount){
 
         Scanner in = new Scanner(System.in);
@@ -111,15 +147,26 @@ public class ATM {
         }
     }
 
+    /**
+     * Method is activated when the user wants to quit the program
+     */
     public void Quit(){
         System.out.println("Quiting...");
     }
 
+    /**
+     * Method returns the bank reference that is corresponding with this ATM
+     *
+     * @return
+     */
     public Bank getMyBank() {
         return myBank;
     }
 
+    /**
+     * Displays the maximum amount the user can withdraw from particular ATM
+     */
     public void ATMinfo(){
-        System.out.println("The maximum amount of cash this ATM can withdraw per transaction: $" + MAX_AMOUNT+ ". Associated with " + myBank.getName());
+        System.out.println("The maximum amount of cash this ATM can withdraw per transaction: $" + MAX_AMOUNT+ ". Associated with Bank " + myBank.getName());
     }
 }

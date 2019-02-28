@@ -1,14 +1,25 @@
+/**
+ * @author Mandeep Pabla
+ * @version 1.0 2/27/2019
+ */
+
 import java.time.LocalDate;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * The CashCard Class is represents a cash card. A cash card comes with a card number from with the bank_id and the associated
+ * account number can be identified. A cash card also comes with its expiration date.
+ */
 public class CashCard {
 
-    //A cash card comes with a card number from which bank_id and the associated account number can be identified.
-    //A cash card also comes with its expiration date.
+    private String cardNumber;           //bank_id and associated account number can be identified. For example: 'A 11'
+    private LocalDate expirationDate;   //expiration date of card
 
-    private String cardNumber;           //'A 11' .....bank_id and associated account number can be identified
-    private LocalDate expirationDate;   //when does this card expire
-
+    /**
+     * The constructor sets the cardNumber and the expiration date associated to that card.
+     * The constructor creates a random date and sets it to the expiration date.
+     * @param cardNumber
+     */
     public CashCard(String cardNumber){
         this.cardNumber=cardNumber;
 
@@ -21,6 +32,10 @@ public class CashCard {
         this.expirationDate=randomDate;
     }
 
+    /**
+     * accessor returns expiration date of card
+     * @return LocalDate
+     */
     public LocalDate getExpirationDate() {
         return expirationDate;
     }
