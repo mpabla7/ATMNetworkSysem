@@ -155,15 +155,6 @@ public class ATM {
     }
 
     /**
-     * Method returns the bank reference that is corresponding with this ATM
-     *
-     * @return
-     */
-    public Bank getMyBank() {
-        return myBank;
-    }
-
-    /**
      * Displays the maximum amount the user can withdraw from particular ATM
      */
     public void ATMinfo(){

@@ -3,10 +3,6 @@
  * @version 1.0 2/27/2019
  */
 
-/**
- * @author Mandeep Pabla
- * @version 1.0 2/27/2019
- */
 
 import java.util.HashMap;
 import java.util.Scanner;
@@ -65,7 +61,7 @@ public class NetworkTester {
         if(atms.containsKey(userATM)){
 
             ATM atm = atms.get(userATM);
-            System.out.println("Enter your card " + atm.getMyBank().getName()); //example: 'A 11' or 'A 12'
+            System.out.println("Enter your card (ex. 'A 11')"); //example: 'A 11' or 'A 12'
             String card = input.nextLine();
             atm.cardValidation(card);
 

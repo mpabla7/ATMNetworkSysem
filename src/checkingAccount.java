@@ -36,7 +36,7 @@ public class checkingAccount {
      * @param cardNumber
      * @param obj
      */
-    public checkingAccount(String name, String password, String cardNumber, Bank obj){
+    public checkingAccount(String name, String password, String cardNumber, Bank obj){      //since checking account temporalry uses Bank object checkingaccount depends on bank
 
         this.password=password;
         this.cardNumber=cardNumber;
