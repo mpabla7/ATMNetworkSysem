@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bd8f8638-8f3a-498e-bd4b-785ac6173f0b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PA2_CS151/ATM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA2_CS151/ATM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PA2_CS151/Bank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA2_CS151/Bank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PA2_CS151/CashCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA2_CS151/CashCard.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PA2_CS151/NetworkTester.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA2_CS151/NetworkTester.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PA2_CS151/checkingAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA2_CS151/checkingAccount.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ATM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ATM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CashCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CashCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NetworkTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NetworkTester.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/checkingAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/checkingAccount.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,7 +29,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/NetworkTester.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="67">
+            <state relative-caret-position="17">
               <caret line="4" selection-start-line="4" selection-end-line="4" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -50,7 +42,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Bank.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1224">
+            <state relative-caret-position="624">
               <caret line="72" column="49" selection-start-line="72" selection-start-column="49" selection-end-line="72" selection-end-column="66" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -67,9 +59,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CashCard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="3" lean-forward="true" selection-start-column="3" selection-end-column="3" />
+            <state relative-caret-position="204">
+              <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
               <folding>
+                <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
@@ -79,7 +72,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/checkingAccount.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
+            <state relative-caret-position="17">
               <caret line="38" column="176" selection-start-line="38" selection-start-column="176" selection-end-line="38" selection-end-column="176" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -120,9 +113,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="951" />
-    <option name="width" value="978" />
-    <option name="height" value="1039" />
+    <option name="x" value="-10" />
+    <option name="width" value="979" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -131,7 +124,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -143,6 +135,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -200,7 +193,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.05033557" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.024832215" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -209,7 +202,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.7322946" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.9575071" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -290,7 +283,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/NetworkTester.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
+        <state relative-caret-position="17">
           <caret line="4" selection-start-line="4" selection-end-line="4" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -301,7 +294,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Bank.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
+        <state relative-caret-position="624">
           <caret line="72" column="49" selection-start-line="72" selection-start-column="49" selection-end-line="72" selection-end-column="66" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -316,9 +309,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CashCard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="3" lean-forward="true" selection-start-column="3" selection-end-column="3" />
+        <state relative-caret-position="204">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
           <folding>
+            <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -326,7 +320,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/checkingAccount.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
+        <state relative-caret-position="17">
           <caret line="38" column="176" selection-start-line="38" selection-start-column="176" selection-end-line="38" selection-end-column="176" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
